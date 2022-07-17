@@ -9,7 +9,7 @@ namespace UC12_ER2.Classes
         
         public string ?endereco { get; set; }
 
-        public string ?rendimento { get; set; }
+        public float ?rendimento { get; set; }
                   
                 
 

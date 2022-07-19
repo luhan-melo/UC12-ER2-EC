@@ -6,7 +6,7 @@ namespace UC12_ER2.Classes
     {
 
         public string ?cpf { get; set; }
-        public DateTime ?dataNascimento { get; set; }
+        public string ?dataNascimento { get; set; }
         
         
         
@@ -16,9 +16,33 @@ namespace UC12_ER2.Classes
             throw new NotImplementedException();
         }
 
+
         public bool ValidarDataNascimento(DateTime dataNasc)
         {
-            throw new NotImplementedException();
-        }
+            DateTime dataAtual = DateTime.Today;
+            double anos = (dataAtual - dataNasc).TotalDays /365;
+            if(anos >= 18){
+                return true;
+            }         
+                return false;
+         }
+         
+         
+
+         public bool ValidarDataNascimento(string dataNasc)
+        {
+            DateTime dataConvertida;
+            //verificar se a string está em um formato valido
+            if(DateTime.TryParse(dataNasc, out dataConvertida)){//TryParse tenta converter e coloca na saida out
+                // Console.WriteLine($"{dataConvertida}");
+                DateTime dataAtual = DateTime.Today;
+                double anos = (dataAtual - dataConvertida).TotalDays /365;
+                 if(anos >= 18){
+                return true;
+                }         
+                return false;
+            }   
+            return false;
+         }
     }
 }

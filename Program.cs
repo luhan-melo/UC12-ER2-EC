@@ -58,7 +58,7 @@ do
             novaPf.nome = "Luiz";
             novaPf.dataNascimento = "18/02/1984";
             novaPf.cpf = "12345678900";
-            novaPf.rendimento = 600.0f;
+            novaPf.rendimento = 2000.0f;
 
             novoEnd.logradouro = "Alameda Barao de Limeira";
             novoEnd.numero = 539;
@@ -68,7 +68,8 @@ do
             Console.WriteLine(@$"
                 Nome: {novaPf.nome}
                 Endereço: {novaPf.endereco.logradouro}, {novaPf.endereco.numero}
-                Maior de idade: {metodoPf.ValidarDataNascimento(novaPf.dataNascimento)}
+                Maior de idade: {(metodoPf.ValidarDataNascimento(novaPf.dataNascimento) ? "Sim": "Não" )}
+                Taxa de imposto a ser paga é: {metodoPf.PagarImposto(novaPf.rendimento).ToString("C")}
                 ");
             Console.WriteLine($"Aperte 'Enter' para continuar");
             Console.ReadLine();
@@ -80,6 +81,7 @@ do
             novaPj.nome = "NomePj";
             novaPj.cnpj = "00000000000100";
             novaPj.razaosocial = "Razao Social Pj";
+            novaPj.rendimento = 8000.5f;
             novoEndPj.logradouro = "Alameda Barao de Limeira";
             novoEndPj.numero = 539;
             novoEndPj.complemento = "Senai Informatica";
@@ -89,7 +91,9 @@ do
                 Nome: {novaPj.nome}
                 Razao social: {novaPj.razaosocial}
                 CNPJ: {novaPj.cnpj}
-                CNPJ é válido: {metodoPj.ValidarCnpj(novaPj.cnpj)}");
+                CNPJ é válido: {(metodoPj.ValidarCnpj(novaPj.cnpj) ?"Sim":"Não" )}
+                Taxa de imposto a ser paga é: {metodoPj.PagarImposto(novaPj.rendimento).ToString("C")}
+                ");
             Console.WriteLine($"Aperte 'Enter' para continuar");
             Console.ReadLine();
             break;

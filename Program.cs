@@ -230,12 +230,14 @@ do
             
             PessoaJuridica metodoPj = new PessoaJuridica();
 
+            
+
             string? opcaoPj;
 
             do
             {
                 Console.Clear();
-                Console.WriteLine($@"
+                Console.WriteLine(@$"
 
 =============================================================================================
 |                       Escolha uma das opções a seguir:                                    |
@@ -257,9 +259,13 @@ do
             PessoaJuridica novaPj = new PessoaJuridica();
             Endereco novoEndPj = new Endereco();
 
+             novaPj.nome = Console.ReadLine();
+
+          
+
             Console.WriteLine($"Digite o nome do CNPJ que desejacadastrar:");
             
-            novaPj.nome = Console.ReadLine();
+           
 
             bool cnpjValido;
 
@@ -326,7 +332,7 @@ do
             // ok novoEndPj.complemento = "Senai Informatica";
             // ok novoEndPj.endComercial = true;
             // novaPj.endereco = novoEndPj;
-
+                metodoPj.Inserir(novaPj);
 
                 break;
 
@@ -357,6 +363,7 @@ do
                 
                 }
 
+            
 
 
                 break;  

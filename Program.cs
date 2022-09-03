@@ -30,6 +30,8 @@ BarraCarregamento("Carregando", 50);
 List<PessoaFisica> listaPf = new List<PessoaFisica>();
 List<PessoaJuridica> listaPj = new List<PessoaJuridica>();
 
+
+
 string? opcao;
 
 do
@@ -86,7 +88,7 @@ do
 
                         Console.WriteLine($"Digite o nome da pessoa física que deseja cadastrar");
                         novaPf.nome = Console.ReadLine();
-
+/*
                         bool dataValida;
 
                         do
@@ -109,12 +111,12 @@ do
                             }
 
                         } while (dataValida == false);
-
+*/
 
 
                         Console.WriteLine($"Digite o número do CPF");
                         novaPf.cpf = Console.ReadLine();
-
+/*
                         Console.WriteLine($"Digite o rendimento mensal (digite apenas números)");
                         novaPf.rendimento = float.Parse(Console.ReadLine());
 
@@ -140,7 +142,18 @@ do
                         }
 
                         novaPf.endereco = novoEnd;
-                        listaPf.Add(novaPf);
+                        //listaPf.Add(novaPf);
+
+                        */
+
+                        using (StreamWriter sw = new StreamWriter($"{novaPf.nome}.txt"))
+                        {
+                           sw.WriteLine($"{novaPf.nome}");
+                           sw.WriteLine($"{novaPf.cpf}");
+                        }                   
+                        // sw.WriteLine(novaPf.nome);
+                        // sw.Close();
+
                         Console.ForegroundColor = ConsoleColor.DarkGreen;
                         Console.WriteLine($"Cadastro Realizado com Sucesso!!!");
                         Console.ResetColor();
@@ -149,6 +162,7 @@ do
                     case "2":
                         Console.Clear();
 
+/*
                         if (listaPf.Count > 0)
                         {
                             foreach (PessoaFisica cadaPessoa in listaPf)
@@ -170,6 +184,21 @@ do
                             Thread.Sleep(3000);
                             
                         }
+*/ 
+
+                        using (StreamReader sr = new StreamReader($"Luis.txt"))
+                        {
+                           string linha;
+                           while ((linha = sr.ReadLine())!= null)
+                           {
+                            Console.WriteLine($"{linha}");
+                           }
+                        }     
+
+                        Console.WriteLine($"Aperte 'Enter' para continuar...");
+                        Console.ReadLine();
+                        
+                        
 
                         break;
                     case "0":
